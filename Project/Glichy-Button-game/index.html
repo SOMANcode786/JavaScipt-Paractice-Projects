@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitchy Button Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+        }
+        #gameButton {
+            padding: 10px 20px;
+            font-size: 18px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Try to Click the Button!</h2>
+    <button id="gameButton">Click Me</button>
+    <p id="message"></p>
+
+    <script>
+        const button = document.getElementById("gameButton");
+        const message = document.getElementById("message");
+
+        button.addEventListener("mouseover", () => {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        });
+
+        button.addEventListener("click", () => {
+            message.innerText = "You Win!";
+            button.style.display = "none";
+        });
+    </script>
+
+</body>
+</html>
